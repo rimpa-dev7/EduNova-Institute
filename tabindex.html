@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Tab Section</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        padding: 20px;
+      }
+
+      .container {
+        display: grid;
+        gap: 20px;
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+      }
+
+      / Tab Header /
+      .tab-header {
+        display: grid;
+        grid-template-columns: repeat(
+          auto-fit,
+          minmax(150px, 1fr)
+        ); / Responsive grid /
+        gap: 15px;
+      }
+
+      .tab-header div {
+        background: none;
+        padding: 20px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        text-align: center; / Center content /
+      }
+
+      .tab-header div:hover,
+      .tab-header div.active {
+        border-top: 2px solid #5e3eff;
+        color: #000;
+      }
+
+      .tab-header h2 {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      .tab-header p {
+        font-size: 14px;
+        color: #000;
+        margin-bottom: 10px;
+      }
+
+      .tab-header div.active p {
+        color: #000;
+      }
+
+      .tab-header button {
+        background: transparent;
+        border: none;
+        color: inherit;
+        padding: 0;
+        font-size: 14px;
+        cursor: pointer;
+        text-decoration: underline;
+      }
+
+      .tab-header div.active button {
+        color: white;
+      }
+
+      / Tab Content /
+      .tabs {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .tab-content {
+        display: none;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        text-align: center;
+      }
+
+      .tab-content img{
+        width: 40% !important;
+      }
+
+      .tab-content.active {
+        display: block;
+      }
+
+      .tab-content img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 15px;
+      }
+
+      .tab-content h3 {
+        color: #5e3eff;
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+
+      .tab-content p {
+        font-size: 16px;
+        color: #555;
+        margin-bottom: 15px;
+      }
+
+      .btn-primary {
+        display: inline-block;
+        padding: 10px 15px;
+        background: #5e3eff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      .btn-primary:hover {
+        background: #4529c5;
+      }
+
+      button.btn-primary {
+        padding: 10px 15px;
+        background-color: #4529c5;
+        color: #fff;
+        text-decoration: none;
+      }
+      / Responsive Design /
+      @media screen and (max-width: 768px) {
+        .container {
+          grid-template-columns: 1fr;
+        }
+
+        .tab-header {
+          grid-template-columns: repeat(
+            2,
+            1fr
+          ); / 2 columns for small screens /
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        .tab-header {
+          grid-template-columns: 1fr; / Single column for very small screens /
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="tabs">
+        <!-- Tab Content -->
+        <div id="tab1" class="tab-content active">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmCy16nhIbV3pI1qLYHMJKwbH2458oiC9EmA&s"
+            alt="Full Dialing Automation"
+          />
+          
+        </div>
+        <div id="tab2" class="tab-content" style="display: none">
+          <img
+            src="https://c2v.ahaanmedia.com/wp-content/uploads/2025/01/image-36.png"
+            alt="Agent Monitoring"
+          />
+        </div>
+        
+
+        <!-- Tab Header -->
+        <div class="tab-header">
+          <div class="active" onclick="openTab(event, 'tab1')">
+            <h2>Optimize Your
+                Healthcare Operations</h2>
+            <p>
+                Easily configure your predictive dialer to suit your specific business needs. With our powerful software, you can ensure that the right agent is automatically assigned.
+            </p>
+            
+          </div>
+          <div onclick="openTab(event, 'tab2')">
+            <h2>Optimize Your Healthcare Operation
+                With Top-Tier Communication Products</h2>
+            <p>
+                Supervise your agents as they make their calls and contact new leads. Make sure everyone is meeting their targets and your business goals are being achieved.
+            </p>
+            <p>nbfbflngkmt;mgt</p>
+            
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function openTab(event, tabId) {
+        // Hide all tab contents
+        const tabContents = document.querySelectorAll(".tab-content");
+        tabContents.forEach((tab) => {
+          tab.style.display = "none";
+        });
+
+        // Remove active class from all buttons
+        const buttons = document.querySelectorAll(".tab-header button");
+        buttons.forEach((button) => {
+          button.classList.remove("active");
+        });
+
+        // Show the clicked tab's content and activate the corresponding button
+        document.getElementById(tabId).style.display = "block";
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </body>
+</html>

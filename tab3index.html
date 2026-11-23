@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Communication Tools</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .header {
+            margin-top: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .header span {
+            display: inline-block;
+            font-size: 0.9rem;
+            padding: 5px 10px;
+            background-color: #e6e0f8;
+            color: #7a67c8;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .tab.active {
+            background-color: #7a67c8;
+            color: white;
+            border-color: #7a67c8;
+        }
+
+        .tab-content {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .swap-card {
+            margin: 30px auto;
+            max-width: 700px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .swap-card img {
+            width: 100%;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .content-section {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 40px;
+            padding: 40px 20px;
+        }
+
+        .content-box {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .content-box h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #7a67c8;
+            margin-bottom: 15px;
+        }
+
+        .content-box p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .divider {
+            width: 50%;
+            height: 2px;
+            background-color: #7a67c8;
+            margin: 30px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <span>DESIGNED FOR CONVENIENCE</span>
+            <h1>Healthcare Communication Tools</h1>
+        </div>
+
+        <!-- Tabs Section -->
+        <div class="tabs">
+            <div class="tab active" data-tab="tab1">Tab 1</div>
+            <div class="tab" data-tab="tab2">Tab 2</div>
+        </div>
+
+        <!-- Tab Content Section -->
+        <div id="tab1" class="tab-content active">
+            <div class="swap-card">
+                <img src="swap-card-placeholder.png" alt="Swap Card UI">
+            </div>
+        </div>
+        <div id="tab2" class="tab-content">
+            <div class="content-section">
+                <div class="content-box">
+                    <h3>Optimize Your Healthcare Operations</h3>
+                    <p>
+                        Easily configure your predictive dialer to suit your specific business needs. With our
+                        powerful software, you can ensure that the right agent is automatically assigned.
+                    </p>
+                </div>
+                <div class="content-box">
+                    <h3>Optimize Your Healthcare Operation With Top-Tier Communication Products</h3>
+                    <p>
+                        Supervise your agents as they make their calls and contact new leads. Make sure
+                        everyone is meeting their targets and your business goals are being achieved.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="divider"></div>
+    </div>
+
+    <script>
+        const tabs = document.querySelectorAll('.tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and contents
+                tabs.forEach(t => t.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // Add active class to the clicked tab and corresponding content
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.tab).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
